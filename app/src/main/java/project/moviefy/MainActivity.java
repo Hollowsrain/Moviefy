@@ -2,16 +2,17 @@ package project.moviefy;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
+import android.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+
+import project.moviefy.Fragments.ActorsFragment;
+import project.moviefy.Fragments.MainFragment;
+import project.moviefy.Fragments.MoviesFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().replace(R.id.content_fragment, new MainFragment()).commit();
     }
 
     @Override
@@ -47,19 +51,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
+        FragmentManager fm = getFragmentManager();
+
         int id = item.getItemId();
 
         if (id == R.id.menu_movies) {
             setTitle("Movies");
-            MoviesFragment moviesFragment = new MoviesFragment();
-            FragmentManager fManager = getSupportFragmentManager();
-            fManager.beginTransaction().replace(R.id.fragment_main, moviesFragment).commit();
+            fm.beginTransaction().replace(R.id.content_fragment, new MoviesFragment()).commit();
 
         } else if (id == R.id.menu_actors) {
             setTitle("Actors");
-            ActorsFragment actorsFragment = new ActorsFragment();
-            FragmentManager fManager = getSupportFragmentManager();
-            fManager.beginTransaction().replace(R.id.fragment_main, actorsFragment).commit();
+            fm.beginTransaction().replace(R.id.content_fragment, new ActorsFragment()).commit();
+
         } else if (id == R.id.menu_search) {
 
         }
