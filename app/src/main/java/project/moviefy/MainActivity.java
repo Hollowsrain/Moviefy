@@ -1,23 +1,23 @@
 package project.moviefy;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -46,13 +46,20 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+
         int id = item.getItemId();
 
         if (id == R.id.menu_movies) {
-            // Handle the camera action
-        } else if (id == R.id.menu_actors) {
+            setTitle("Movies");
+            MoviesFragment moviesFragment = new MoviesFragment();
+            FragmentManager fManager = getSupportFragmentManager();
+            fManager.beginTransaction().replace(R.id.fragment_main, moviesFragment).commit();
 
+        } else if (id == R.id.menu_actors) {
+            setTitle("Actors");
+            ActorsFragment actorsFragment = new ActorsFragment();
+            FragmentManager fManager = getSupportFragmentManager();
+            fManager.beginTransaction().replace(R.id.fragment_main, actorsFragment).commit();
         } else if (id == R.id.menu_search) {
 
         }
