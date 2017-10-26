@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 
 import project.moviefy.R;
 
-public class MainFragment extends Fragment{
+public class HomeFragment extends Fragment{
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         return rootView;
     }
 }
