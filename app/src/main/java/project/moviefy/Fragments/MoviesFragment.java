@@ -45,17 +45,17 @@ public class MoviesFragment extends Fragment {
                 }
                 else
                     urlString = "https://api.themoviedb.org/3/discover/movie?sort_by=vote_avarage.desc&vote_count.gte=300&api_key=" + API_KEY;
-                urlConnection = (HttpURLConnection) url.openConnection();
+                //urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.connect();
 
                 InputStream inputStream = urlConnection.getInputStream();
                 StringBuffer buffer = new StringBuffer();
-                if (null == InputStream)
+                /*if (InputStream == null)
                 {
                     return null;
 
-                }
+                }*/
                 reader = new BufferedReader(new InputStreamReader(inputStream));
                 String line;
                 while ((line = reader.readLine())!=null)
@@ -100,7 +100,7 @@ public class MoviesFragment extends Fragment {
     }
         public  String[] getPathsFromJSON(String JSONStringParam) throws JSONException{
             JSONObject JSONString = new JSONObject(JSONStringParam);
-            JSONArray
+            //JSONArray
                     JSONArray moviesArray = JSONString.getJSONArray("results");
                     String[] result = new String[moviesArray.length()];
 

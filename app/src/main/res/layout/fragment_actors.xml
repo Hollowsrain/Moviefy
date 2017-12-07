@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <ScrollView
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ScrollView>
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/actor_name"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/textView11"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/navBarColor"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="66dp"
+            android:text="Type in actor's or actress' full name"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/check_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/actor_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"
+            android:background="@color/navBarColor"
+            android:text="Check"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/check_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="31dp"
+            android:text=""
+            android:textColor="@color/navBarColor"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
 </FrameLayout>

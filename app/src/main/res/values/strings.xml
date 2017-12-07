@@ -85,5 +85,6 @@
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_actor_list">ActorListActivity</string>
+    <string name="textview">TextView</string>
 
 </resources>

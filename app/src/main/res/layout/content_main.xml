@@ -10,7 +10,9 @@
     tools:context="project.moviefy.MainActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp"
-    tools:showIn="@layout/app_bar_main">
+    tools:showIn="@layout/app_bar_main"
+    android:background="@color/contentBackground"
+    >
 
     <FrameLayout
         android:id="@+id/content_fragment"

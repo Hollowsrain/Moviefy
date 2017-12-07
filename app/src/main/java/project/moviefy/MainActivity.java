@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import project.moviefy.Data.IMDBInfo;
 import project.moviefy.Fragments.ActorsFragment;
 import project.moviefy.Fragments.HomeFragment;
 import project.moviefy.Fragments.MoviesFragment;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -36,7 +38,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.content_fragment, new HomeFragment()).commit();
+        setTitle("Home");
+
     }
+
+
 
     @Override
     public void onBackPressed() {
