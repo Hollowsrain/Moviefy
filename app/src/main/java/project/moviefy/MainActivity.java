@@ -10,11 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import project.moviefy.Data.IMDBInfo;
 import project.moviefy.Fragments.ActorsFragment;
 import project.moviefy.Fragments.HomeFragment;
 import project.moviefy.Fragments.MoviesFragment;
-import project.moviefy.Fragments.SearchFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -68,9 +66,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.menu_actors) {
             setTitle("Actors");
             fm.beginTransaction().replace(R.id.content_fragment, new ActorsFragment()).commit();
-        } else if (id == R.id.menu_search) {
-            setTitle("Search");
-            fm.beginTransaction().replace(R.id.content_fragment, new SearchFragment()).commit();
         } else if (id == R.id.menu_home){
             setTitle("Home");
             fm.beginTransaction().replace(R.id.content_fragment, new HomeFragment()).commit();

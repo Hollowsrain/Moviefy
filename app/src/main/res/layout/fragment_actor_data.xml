@@ -1,0 +1,116 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="project.moviefy.Fragments.ActorData">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/actor_image"
+            android:layout_width="160dp"
+            android:layout_height="232dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="14dp"
+            android:src="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/actor_name"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/bio_and_movies"
+            android:layout_alignRight="@+id/bio_and_movies"
+            android:layout_alignTop="@+id/actor_image"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:gravity="start" />
+
+        <TextView
+            android:id="@+id/actor_born"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/actor_name"
+            android:layout_alignStart="@+id/actor_name"
+            android:layout_below="@+id/actor_name"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:gravity="start" />
+
+        <TextView
+            android:id="@+id/actor_occupation"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/actor_born"
+            android:layout_alignStart="@+id/actor_born"
+            android:layout_below="@+id/actor_born"
+            android:gravity="start"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_bio_and_movies"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/actor_image"
+            android:layout_alignStart="@+id/actor_image"
+            android:layout_below="@+id/actor_image"
+            android:layout_marginTop="13dp"
+            android:background="@color/navBarColor"
+            android:text="See person's movies"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/bio_and_movies"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_bio_and_movies"
+            android:layout_centerHorizontal="true"
+            android:layout_alignLeft="@+id/actor_image"
+            android:layout_alignStart="@+id/actor_image"
+            android:layout_marginTop="15dp"
+            android:maxLines="9"
+            android:scrollbars="vertical"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp"
+            android:gravity="start" />
+
+        <TextView
+            android:id="@+id/waiting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_bio_and_movies"
+            android:layout_centerHorizontal="true"
+            android:text="... wait for a moment ..."
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/btn_gallery"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bio_and_movies"
+            android:layout_alignEnd="@+id/bio_and_movies"
+            android:layout_alignRight="@+id/bio_and_movies"
+            android:background="@color/navBarColor"
+            android:text="Gallery"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+</FrameLayout>

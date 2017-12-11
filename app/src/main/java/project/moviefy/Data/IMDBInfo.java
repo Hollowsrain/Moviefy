@@ -8,7 +8,7 @@ public class IMDBInfo {
         ArrayList<IMDBSubjectInternalInfo> infos = null;
         try {
             if (category.equals("Movies")) {
-                new IMDBMovieOrSeriestInfo().search(null, movieName);
+                infos = new IMDBMovieOrSeriestInfo().search(null, movieName);
             } else if (category.equals("Actors")) {
                 infos = new IMDBPersontInfo().search(actorName, null);
             } else {

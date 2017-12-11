@@ -7,6 +7,11 @@
     <string name="menu_actors">Actors</string>
     <string name="menu_search">Search</string>
     <string name="menu_home">Home</string>
+    <string name="found_matches"><u>Found matches: 0</u></string>
+    <string name="actor_name"><u>Name:</u></string>
+    <string name="actor_born"><u>Born:</u></string>
+    <string name="actor_occupation"><u>Occupation:</u></string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

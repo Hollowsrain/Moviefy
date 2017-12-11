@@ -17,7 +17,7 @@ public class IMDBMovieOrSeriestInfo extends IMDBSubjectInfo {
     public final String SEARCH_URL_ENDS = "%";
     
     public final String[] JSON_PARTS = {
-        "title_popular" /*, "title_exact", "title_substring", "title_approx"*/
+        "title_popular" ,  "title_exact" , "title_substring", /*"title_approx"*/
     };
     
     public final String MOVIE_OR_SERIES_URL_FORMAT = "http://www.imdb.com/title/%s/";
@@ -27,7 +27,6 @@ public class IMDBMovieOrSeriestInfo extends IMDBSubjectInfo {
         try {
             String url = SEARCH_URL_STARTS + URLEncoder.encode(fullName + SEARCH_URL_ENDS, "UTF-8");
             infos = searchInfos(url, fullName);
-            //showInfo(infos.toArray(new IMDBSubjectInternalInfo[0]));
         } catch (Exception e) {
             throw e;
         }
@@ -90,12 +89,14 @@ public class IMDBMovieOrSeriestInfo extends IMDBSubjectInfo {
     
     private String getMovieReport(Document doc) {
         StringBuilder report = new StringBuilder("");
-        report.append("Title: ").append(getMovieTitle(doc)).append("\n");
-        report.append("Rate: ").append(getMovieRate(doc)).append("\n");
-        report.append("Director: ").append(getMovieDirector(doc)).append("\n");
-        report.append("Writers: ").append(getMovieWriters(doc)).append("\n");
-        report.append("Stars: ").append(getMovieStars(doc)).append("\n");
-        report.append("Storyline: ").append(getMovieStoryline(doc));
+        report.append(getMovieTitle(doc)).append("\n");
+        report.append(getMovieRate(doc)).append("\n");
+        report.append(getMovieDirector(doc)).append("\n");
+        report.append(getMovieWriters(doc)).append("\n");
+        report.append(getMovieStars(doc)).append("\n");
+        report.append(getMovieStoryline(doc)).append("\n");
+        report.append(getGenre(doc)).append("\n");
+        report.append(getImageUrl(doc)).append("\n");
         return report.toString();
     }
     
@@ -119,10 +120,17 @@ public class IMDBMovieOrSeriestInfo extends IMDBSubjectInfo {
         String result = "";
         Elements credit_summary_item = doc.getElementsByClass("credit_summary_item");
         for (Element element : credit_summary_item) {
-            Elements director = element.select("span[itemprop=director]");
-            if ((director != null) && (director.size() > 0)) {
-                Elements name = element.select("span[itemprop=name]");
-                result = name.text();
+            Elements directors = element.select("span[itemprop=director]");
+            if ((directors != null) && (directors.size() > 0)) {
+                boolean first = true;
+                for (Element director : directors) {
+                    if (!first) {
+                        result += ", ";
+                    }
+                    first = false;
+                    Elements name = director.select("span[itemprop=name]");
+                    result += name.text();
+                }
                 return result;
             }
         }
@@ -182,11 +190,14 @@ public class IMDBMovieOrSeriestInfo extends IMDBSubjectInfo {
     
     private String getSeriesReport(Document doc) {
         StringBuilder report = new StringBuilder("");
-        report.append("Title: ").append(getSeriesTitle(doc)).append("\n");
-        report.append("Rate: ").append(getSeriesRate(doc)).append("\n");
-        report.append("Creators: ").append(getSeriesCreators(doc)).append("\n");
-        report.append("Stars: ").append(getSeriesStars(doc)).append("\n");
-        report.append("Storyline: ").append(getMovieStoryline(doc));
+        report.append(getSeriesTitle(doc)).append("\n");
+        report.append(getSeriesRate(doc)).append("\n");
+        report.append(getSeriesCreators(doc)).append("\n");
+        report.append("@@@").append("\n");
+        report.append(getSeriesStars(doc)).append("\n");
+        report.append(getMovieStoryline(doc)).append("\n");
+        report.append(getGenre(doc)).append("\n");
+        report.append(getImageUrl(doc)).append("\n");
         return report.toString();
     }
     
@@ -264,5 +275,22 @@ public class IMDBMovieOrSeriestInfo extends IMDBSubjectInfo {
         result = description.text();
         return result;
     }
-    
+
+    private String getGenre(Document doc){
+        String result = "";
+        Elements wrapper = doc.getElementsByClass("article");
+        Elements genre = wrapper.select("[itemprop=genre]");
+        result = genre.text();
+        result = result.replace("Genres: ", "");
+        result = result.replace(" |", ",");
+
+        return result;
+    }
+
+    private String getImageUrl(Document doc){
+        String result = "";
+        Elements wrapper = doc.getElementsByClass("poster");
+        result = wrapper.select("[itemprop=image]").attr("src");
+        return result;
+    }
 }

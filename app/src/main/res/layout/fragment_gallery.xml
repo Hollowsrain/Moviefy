@@ -1,0 +1,377 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="project.moviefy.Fragments.Gallery">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <GridLayout
+        android:id="@+id/img_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="6"
+        android:rowCount="9">
+
+        <ImageView
+            android:id="@+id/imageView50"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView49"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView48"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView47"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView46"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView45"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView44"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView43"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView42"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView41"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView40"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView39"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView38"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView37"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView36"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView35"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView34"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView33"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView32"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView31"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView30"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView29"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView28"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView27"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView26"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView25"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView24"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="60dp"
+            android:layout_height="59dp"
+            android:src="@mipmap/ic_actors" />
+
+        <Button
+            android:id="@+id/btn_gallery_previous"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="center"
+            android:background="@color/navBarColor"
+            android:text="Previous page"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/gallery_page_nr"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="1"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="30sp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btn_gallery_next"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btn_gallery_close"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/btn_gallery_close"
+            android:layout_columnSpan="2"
+            android:layout_gravity="center"
+            android:layout_marginEnd="74dp"
+            android:layout_marginRight="74dp"
+            android:background="@color/navBarColor"
+            android:text="Next page"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible" />
+
+    </GridLayout>
+
+    <RelativeLayout
+        android:id="@+id/gallery_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/gallery_large_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_actors" />
+
+        <Button
+            android:id="@+id/btn_gallery_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/btn_gallery_previous"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="94dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@android:drawable/btn_dialog"
+            android:textColor="@color/colorWhite" />
+
+    </RelativeLayout>
+
+</FrameLayout>

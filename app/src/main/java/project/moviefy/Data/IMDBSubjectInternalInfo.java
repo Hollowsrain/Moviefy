@@ -16,7 +16,7 @@ public class IMDBSubjectInternalInfo {
 
     }
 
-    public IMDBSubjectInternalInfo(IMDBSubjectInternalInfo info) {
+    public IMDBSubjectInternalInfo(IMDBSubjectInternalInfo info, String report) {
         this.name = info.name;
         this.id = info.id;
         this.description1 = info.description1;

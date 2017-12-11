@@ -1,6 +1,7 @@
 
 package project.moviefy.Data;
 
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
@@ -27,7 +28,6 @@ public class IMDBPersontInfo extends IMDBSubjectInfo {
         try {
             String url = SEARCH_URL_STARTS + URLEncoder.encode(fullName + SEARCH_URL_ENDS, "UTF-8");
             infos = searchInfos(url, fullName);
-            showInfo(infos);
         } catch (Exception e) {
             throw e;
         }
@@ -68,22 +68,20 @@ public class IMDBPersontInfo extends IMDBSubjectInfo {
             throw new Exception("Bad id.");
         }
         String url = String.format(PERSON_URL_FORMAT, info.id);
-        System.out.println();
         System.out.println("... wait for a moment...");
         Document doc = Jsoup.connect(url).get();
-        String report = getPersonReport(doc);
-        System.out.println(report);
+        String report = getPersonReport(doc, info);
         return report;
     }
     
-    private String getPersonReport(Document doc) {
+    private String getPersonReport(Document doc, IMDBSubjectInternalInfo info) throws Exception {
         StringBuilder report = new StringBuilder("");
-        report.append("Name: ").append(getPersonName(doc)).append("\n");
-        report.append("Occupation: ").append(getPersonOccupation(doc)).append("\n");
-        report.append("").append(getPersonBorn(doc)).append("\n");
-        report.append("Short bio: ").append(getPersonShortBio(doc)).append("\n");
-        report.append("Picture URL: ").append(getPersonImageUrl(doc)).append("\n");
-        report.append("Starred in: ").append(getPersonMovies(doc)).append("\n");
+        report.append(getPersonName(doc)).append("\n");
+        report.append(getPersonOccupation(doc)).append("\n");
+        report.append(getPersonBorn(doc)).append("\n");
+        report.append(getPersonImageUrl(doc)).append("\n");
+        report.append(getPersonMovies(doc)).append("\n");
+        report.append(getPersonFullBio(info)).append("\n");
         return report.toString();
     }
     
@@ -114,18 +112,7 @@ public class IMDBPersontInfo extends IMDBSubjectInfo {
         String result = "";
         Element born = doc.getElementById("name-born-info");
         result = born.text();
-        return result;
-    }
-    
-    private String getPersonShortBio(Document doc) {
-        String result = "";
-        Elements wrapper = doc.getElementsByClass("article name-overview");
-        Elements name_trivia_bio_text = wrapper.select(".name-trivia-bio-text");
-        Elements shortBio = name_trivia_bio_text.select("[itemprop=description]");
-        shortBio.select("span").remove();
-        result += shortBio.text();
-        int idx = result.lastIndexOf("...");
-        result = result.substring(0, idx - 1);
+        result = result.replace("Born: ", "");
         return result;
     }
 
@@ -140,8 +127,40 @@ public class IMDBPersontInfo extends IMDBSubjectInfo {
         String result = "";
         Elements wrapper = doc.getElementsByClass("filmo-category-section");
         Elements movies = wrapper.select("b");
+        Elements years = wrapper.select("span.year_column");
+        String[] _years = new String[years.size()];
+        int i = 0;
+        for(Element e : years){
+            _years[i] = e.text();
+            if(e.text().length() < 4)
+                _years[i] = " (unknown)";
+            else _years[i] = " (" + e.text() + ")";
+            i++;
+        }
+        i = 0;
         boolean first = true;
         for (Element e : movies) {
+            if (!first) {
+                result += "@@";
+            }
+            first = false;
+            result += e.text();
+            result += _years[i];
+            i++;
+        }
+
+        return result;
+    }
+
+    private String getPersonFullBio(IMDBSubjectInternalInfo info) throws Exception{
+        String result = "";
+        String url = String.format(PERSON_URL_FORMAT, info.id);
+        url += "bio?ref_=nm_ov_bio_sm";
+        Document doc = Jsoup.connect(url).get();
+        Elements wrapper = doc.getElementsByClass("soda odd");
+        Elements bio = wrapper.select("p");
+        boolean first = true;
+        for (Element e : bio) {
             if (!first) {
                 result += "\n";
             }
@@ -149,7 +168,41 @@ public class IMDBPersontInfo extends IMDBSubjectInfo {
             result += e.text();
         }
 
+
         return result;
     }
-    
+
+    public ArrayList<String> getGallery(IMDBSubjectInternalInfo info, int page) throws IOException {
+        ArrayList<String> result = new ArrayList<>();
+        String url = String.format(PERSON_URL_FORMAT, info.id);
+        url += "mediaindex?page=" + String.valueOf(page) + "&ref_=nmmi_mi_sm";
+        Document doc = Jsoup.connect(url).get();
+        Elements wrapper = doc.getElementsByClass("article");
+        Elements imgs = wrapper.select("[itemprop=image]");
+        boolean first = true;
+        for(Element e : imgs){
+            if(!first) {
+                String img = e.attr("src");
+                result.add(img);
+            }
+            first = false;
+        }
+
+        return result;
+    }
+
+    public ArrayList<String> getLargeGallery(IMDBSubjectInternalInfo info, int page) throws IOException {
+        ArrayList<String> result = new ArrayList<>();
+        String url = String.format(PERSON_URL_FORMAT, info.id);
+        url += "mediaindex?page=" + String.valueOf(page) + "&ref_=nmmi_mi_sm";
+        Document doc = Jsoup.connect(url).get();
+        Elements wrapper = doc.getElementsByClass("article");
+        Elements imgs = wrapper.select("[itemprop=thumbnailUrl]");
+        for(Element e : imgs){
+            String img = e.attr("href");
+            result.add(img);
+        }
+
+        return result;
+    }
 }
