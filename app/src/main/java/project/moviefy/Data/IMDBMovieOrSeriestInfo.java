@@ -1,5 +1,6 @@
 package project.moviefy.Data;
 
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
@@ -291,6 +292,39 @@ public class IMDBMovieOrSeriestInfo extends IMDBSubjectInfo {
         String result = "";
         Elements wrapper = doc.getElementsByClass("poster");
         result = wrapper.select("[itemprop=image]").attr("src");
+        return result;
+    }
+
+    public ArrayList<String> getGallery(IMDBSubjectInternalInfo info, int page) throws IOException {
+        ArrayList<String> result = new ArrayList<>();
+        String url = String.format(MOVIE_OR_SERIES_URL_FORMAT, info.id);
+        url += "mediaindex?page=" + String.valueOf(page) + "&ref_=ttmi_mi_sm";
+        Document doc = Jsoup.connect(url).get();
+        Elements wrapper = doc.getElementsByClass("article");
+        Elements imgs = wrapper.select("[itemprop=image]");
+        boolean first = true;
+        for(Element e : imgs){
+            if(!first) {
+                String img = e.attr("src");
+                result.add(img);
+            }
+            first = false;
+        }
+
+        return result;
+    }
+
+    public ArrayList<String> getLargeGallery(IMDBSubjectInternalInfo info, int page) throws IOException {
+        ArrayList<String> result = new ArrayList<>();
+        String url = String.format(MOVIE_OR_SERIES_URL_FORMAT, info.id);
+        url += "mediaindex?page=" + String.valueOf(page) + "&ref_=ttmi_mi_sm";
+        Document doc = Jsoup.connect(url).get();
+        Elements wrapper = doc.getElementsByClass("article");
+        Elements imgs = wrapper.select("[itemprop=thumbnailUrl]");
+        for(Element e : imgs){
+            String img = e.attr("href");
+            result.add(img);
+        }
         return result;
     }
 }

@@ -33,7 +33,7 @@
             android:layout_toRightOf="@+id/movie_image"
             android:gravity="start"
             android:textAlignment="textStart"
-            android:textColor="@color/colorWhite"
+            android:textColor="@android:color/background_dark"
             android:textSize="14sp" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:layout_centerVertical="true"
             android:text="... wait for a moment ..."
             android:textAlignment="center"
-            android:textColor="@color/colorWhite"
+            android:textColor="@android:color/background_dark"
             android:textSize="25sp" />
 
         <TextView
@@ -54,7 +54,7 @@
             android:layout_alignLeft="@+id/movie_genre"
             android:layout_alignStart="@+id/movie_genre"
             android:layout_below="@+id/movie_genre"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@android:color/background_dark" />
 
         <TextView
             android:id="@+id/movie_director"
@@ -63,7 +63,7 @@
             android:layout_alignLeft="@+id/movie_rating"
             android:layout_alignStart="@+id/movie_rating"
             android:layout_below="@+id/movie_rating"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@android:color/background_dark" />
 
         <TextView
             android:id="@+id/movie_genre"
@@ -72,7 +72,7 @@
             android:layout_alignLeft="@+id/movie_name"
             android:layout_alignStart="@+id/movie_name"
             android:layout_below="@+id/movie_name"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@android:color/background_dark" />
 
         <TextView
             android:id="@+id/movie_writers"
@@ -81,7 +81,7 @@
             android:layout_alignLeft="@+id/movie_stars"
             android:layout_alignStart="@+id/movie_stars"
             android:layout_below="@+id/movie_stars"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@android:color/background_dark" />
 
         <TextView
             android:id="@+id/movie_stars"
@@ -90,7 +90,7 @@
             android:layout_alignLeft="@+id/movie_director"
             android:layout_alignStart="@+id/movie_director"
             android:layout_below="@+id/movie_director"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@android:color/background_dark" />
 
         <TextView
             android:id="@+id/movie_storyLine"
@@ -102,7 +102,7 @@
             android:maxLines="13"
             android:scrollbars="vertical"
             android:textAlignment="textStart"
-            android:textColor="@color/colorWhite"
+            android:textColor="@android:color/background_dark"
             android:textSize="14sp" />
 
         <TextView
@@ -113,6 +113,21 @@
             android:layout_alignStart="@+id/movie_image"
             android:layout_below="@+id/movie_image"
             android:textAlignment="textStart"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@android:color/background_dark" />
+
+        <Button
+            android:id="@+id/btn_movie_gallery"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@color/navBarColor"
+            android:text="Gallery"
+            android:textColor="@color/colorWhite"
+            android:visibility="invisible" />
     </RelativeLayout>
 </FrameLayout>

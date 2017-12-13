@@ -153,7 +153,9 @@ public class ActorData extends Fragment implements View.OnClickListener {
                 break;
             case "Gallery":
                 FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.content_fragment, new Gallery(infos.get(index))).commit();
+                String url = String.format("http://www.imdb.com/name/%s/", infos.get(index).id);
+                url += "mediaindex?page=" + String.valueOf(1) + "&ref_=nmmi_mi_sm";
+                fm.beginTransaction().replace(R.id.content_fragment, new Gallery(infos.get(index), url)).commit();
                 break;
         }
     }

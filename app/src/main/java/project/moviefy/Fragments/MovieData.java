@@ -1,6 +1,7 @@
 package project.moviefy.Fragments;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.method.ScrollingMovementMethod;
@@ -8,6 +9,7 @@ import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,8 +28,8 @@ public class MovieData extends Fragment implements View.OnClickListener{
     String report;
 
     ImageView movieImage;
-    TextView waitingTxt;
 
+    TextView waitingTxt;
     TextView movieTitle;
     TextView movieRating;
     TextView movieDirector;
@@ -36,6 +38,10 @@ public class MovieData extends Fragment implements View.OnClickListener{
     TextView movieGenre;
     TextView movieStoryLine;
     TextView movieDescription;
+
+    Button btnGallery;
+
+    int index;
 
     public MovieData(String id, java.util.ArrayList<IMDBSubjectInternalInfo> infos){
         this.id = id;
@@ -59,6 +65,8 @@ public class MovieData extends Fragment implements View.OnClickListener{
         movieStoryLine = rootView.findViewById(R.id.movie_storyLine);
         movieStoryLine.setMovementMethod(new ScrollingMovementMethod());
         movieDescription = rootView.findViewById(R.id.movie_description);
+        btnGallery = rootView.findViewById(R.id.btn_movie_gallery);
+        btnGallery.setOnClickListener(this);
 
         try {
             getMovieReport();
@@ -71,13 +79,17 @@ public class MovieData extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-
+        FragmentManager fm = getFragmentManager();
+        String url = String.format("http://www.imdb.com/title/%s/", infos.get(index).id);
+        url += "mediaindex?page=" + String.valueOf(1) + "&ref_=ttmi_mi_sm";
+        fm.beginTransaction().replace(R.id.content_fragment, new Gallery(infos.get(index), url)).commit();
     }
 
     private void getMovieReport() throws InterruptedException {
         for(int i = 0; i < infos.size(); i++) {
             if (infos.get(i).id == id) {
                 final int finalI = i;
+                index = i;
                 new Thread(new Runnable() {
                     public void run() {
                         try {
@@ -123,6 +135,8 @@ public class MovieData extends Fragment implements View.OnClickListener{
                 updateTxtViews(movieGenre, "Genre", genre);
                 updateTxtViews(movieStoryLine, null, storyLine);
                 updateTxtViews(movieDescription, "Description", "");
+
+                btnGallery.setVisibility(View.VISIBLE);
 
             }
         });

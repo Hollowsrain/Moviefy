@@ -20,6 +20,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import project.moviefy.Data.IMDBMovieOrSeriestInfo;
 import project.moviefy.Data.IMDBPersontInfo;
 import project.moviefy.Data.IMDBSubjectInternalInfo;
 import project.moviefy.R;
@@ -38,12 +39,14 @@ public class Gallery extends Fragment implements View.OnClickListener{
     ImageView largeImage;
     Button btnClose;
     TextView pageNr;
+    String url;
 
-    public Gallery(IMDBSubjectInternalInfo info){
+    public Gallery(IMDBSubjectInternalInfo info, String url){
         this.info = info;
         gallery = new ArrayList<>();
         pageCount = 1;
         currentPage = 1;
+        this.url = url;
     }
 
     @Override
@@ -60,45 +63,49 @@ public class Gallery extends Fragment implements View.OnClickListener{
         btnClose = rootView.findViewById(R.id.btn_gallery_close);
         btnClose.setOnClickListener(this);
         pageNr = rootView.findViewById(R.id.gallery_page_nr);
-        importImgs();
+        importImgs(url);
 
         return rootView;
     }
 
-    private void importImgs() {
+    private void importImgs(final String url) {
         new Thread(new Runnable() {
             public void run() {
                 try {
-                    String url = String.format("http://www.imdb.com/name/%s/", info.id);
-                    url += "mediaindex?page=" + String.valueOf(1) + "&ref_=nmmi_mi_sm";
                     Document doc = Jsoup.connect(url).get();
                     Elements wrapper = doc.select("span.page_list");
                     pageCount = 1;
                     pageCount += wrapper.select("a").size() / 2;
-                    gallery = new IMDBPersontInfo().getGallery(info, currentPage);
-                    largeGallery = new IMDBPersontInfo().getLargeGallery(info, currentPage);
+                    if(info.kind == IMDBSubjectInternalInfo.Kind.PERSON) {
+                        gallery = new IMDBPersontInfo().getGallery(info, currentPage);
+                        largeGallery = new IMDBPersontInfo().getLargeGallery(info, currentPage);
+                    } else {
+                        gallery = new IMDBMovieOrSeriestInfo().getGallery(info, currentPage);
+                        largeGallery = new IMDBMovieOrSeriestInfo().getLargeGallery(info, currentPage);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        for(int i = 0; i < gallery.size(); i++){
-                            ImageView imgView = (ImageView) imgGrid.getChildAt(i);
-                            String imgUrl = gallery.get(i);
-                            Picasso.with(getActivity()).load(imgUrl).into(imgView);
+                if(getActivity() != null)
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            for(int i = 0; i < gallery.size(); i++){
+                                ImageView imgView = (ImageView) imgGrid.getChildAt(i);
+                                String imgUrl = gallery.get(i);
+                                Picasso.with(getActivity()).load(imgUrl).into(imgView);
+                            }
+                            setOnClicks();
+                            btnNext.setVisibility(View.VISIBLE);
+                            btnNext.setClickable(true);
+
+                            btnPrevious.setVisibility(View.VISIBLE);
+                            btnNext.setClickable(true);
+
+                            pageNr.setVisibility(View.VISIBLE);
+                            pageNr.setText(String.valueOf(currentPage));
                         }
-                        setOnClicks();
-                        btnNext.setVisibility(View.VISIBLE);
-                        btnNext.setClickable(true);
-
-                        btnPrevious.setVisibility(View.VISIBLE);
-                        btnNext.setClickable(true);
-
-                        pageNr.setVisibility(View.VISIBLE);
-                        pageNr.setText(String.valueOf(currentPage));
-                    }
-                });
+                    });
             }
         }).start();
 
@@ -148,7 +155,7 @@ public class Gallery extends Fragment implements View.OnClickListener{
                     if (currentPage < pageCount)
                         currentPage++;
                     if (currentPage <= pageCount) {
-                        importImgs();
+                        importImgs(url);
                     }
                 }
             });
@@ -161,7 +168,7 @@ public class Gallery extends Fragment implements View.OnClickListener{
                         btnNext.setVisibility(View.INVISIBLE);
                         btnPrevious.setVisibility(View.INVISIBLE);
                         currentPage--;
-                        importImgs();
+                        importImgs(url);
                     }
                 }
             });

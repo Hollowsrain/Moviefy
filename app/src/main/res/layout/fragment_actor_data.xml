@@ -30,10 +30,10 @@
             android:layout_alignEnd="@+id/bio_and_movies"
             android:layout_alignRight="@+id/bio_and_movies"
             android:layout_alignTop="@+id/actor_image"
+            android:gravity="start"
             android:textAlignment="textStart"
-            android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            android:gravity="start" />
+            android:textColor="@android:color/background_dark"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/actor_born"
@@ -42,10 +42,10 @@
             android:layout_alignLeft="@+id/actor_name"
             android:layout_alignStart="@+id/actor_name"
             android:layout_below="@+id/actor_name"
+            android:gravity="start"
             android:textAlignment="textStart"
-            android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            android:gravity="start" />
+            android:textColor="@android:color/background_dark"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/actor_occupation"
@@ -56,7 +56,7 @@
             android:layout_below="@+id/actor_born"
             android:gravity="start"
             android:textAlignment="textStart"
-            android:textColor="@color/colorWhite"
+            android:textColor="@android:color/background_dark"
             android:textSize="16sp" />
 
         <Button
@@ -77,17 +77,17 @@
             android:id="@+id/bio_and_movies"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_bio_and_movies"
-            android:layout_centerHorizontal="true"
             android:layout_alignLeft="@+id/actor_image"
             android:layout_alignStart="@+id/actor_image"
+            android:layout_below="@+id/btn_bio_and_movies"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
+            android:gravity="start"
             android:maxLines="9"
             android:scrollbars="vertical"
             android:textAlignment="textStart"
-            android:textColor="@color/colorWhite"
-            android:textSize="16sp"
-            android:gravity="start" />
+            android:textColor="@android:color/background_dark"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/waiting"
@@ -97,7 +97,7 @@
             android:layout_centerHorizontal="true"
             android:text="... wait for a moment ..."
             android:textAlignment="center"
-            android:textColor="@color/colorWhite"
+            android:textColor="@android:color/background_dark"
             android:textSize="25sp" />
 
         <Button

@@ -135,7 +135,7 @@ public class ActorsFragment extends Fragment implements View.OnClickListener{
             button.setBackgroundColor(Color.TRANSPARENT);
             button.setTextSize(15);
             button.setText(i+1 + ". "+ infos.get(i).name + " (" + infos.get(i).description1 + ")");
-            button.setTextColor(Color.WHITE);
+            button.setTextColor(Color.BLACK);
             String personId = infos.get(i).id;
             button.setTag(personId);
 

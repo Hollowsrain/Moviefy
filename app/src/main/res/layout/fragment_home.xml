@@ -1,13 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="241dp"
-        android:layout_height="162dp"
-        android:text="Main page"
-        android:textSize="50sp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/home_img"
+                android:layout_width="300dp"
+                android:layout_height="130dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                app:srcCompat="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/txt_1"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/home_img"
+                android:layout_alignLeft="@+id/home_img"
+                android:layout_alignRight="@+id/home_img"
+                android:layout_alignStart="@+id/home_img"
+                android:layout_below="@+id/home_img"
+                android:layout_marginTop="14dp"
+                android:textColor="@android:color/background_dark" />
+
+            <TextView
+                android:id="@+id/txt_2"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txt_1"
+                android:layout_alignStart="@+id/txt_1"
+                android:layout_below="@+id/txt_1"
+                android:layout_marginTop="20dp"
+                android:textColor="@android:color/background_dark" />
+
+            <TextView
+                android:id="@+id/txt_3"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txt_2"
+                android:layout_alignStart="@+id/txt_2"
+                android:layout_below="@+id/txt_2"
+                android:layout_marginTop="18dp"
+                android:textColor="@android:color/background_dark" />
+
+            <TextView
+                android:id="@+id/txt_4"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txt_3"
+                android:layout_alignStart="@+id/txt_3"
+                android:layout_below="@+id/txt_3"
+                android:layout_marginTop="19dp"
+                android:textColor="@android:color/background_dark" />
+        </RelativeLayout>
+    </ScrollView>
+
 </FrameLayout>

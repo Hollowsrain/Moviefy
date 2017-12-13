@@ -36,7 +36,7 @@
             android:inputType="textPersonName"
             android:text=""
             android:textAlignment="center"
-            android:textColor="@color/colorWhite"
+            android:textColor="@android:color/background_dark"
             android:textStyle="bold" />
 
         <TextView
@@ -49,7 +49,7 @@
             android:text="Type in full title of the movie/series"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhite"
+            android:textColor="@android:color/background_dark"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -74,7 +74,7 @@
             android:layout_below="@+id/movie_name"
             android:text="ex: Fight Club / The Godfather / ..."
             android:textAlignment="center"
-            android:textColor="@color/colorWhite"
+            android:textColor="@android:color/background_dark"
             android:textStyle="bold"
             android:visibility="visible" />
 
@@ -88,7 +88,7 @@
             android:gravity="start"
             android:text="@string/found_matches"
             android:textAlignment="viewStart"
-            android:textColor="@color/colorWhite"
+            android:textColor="@android:color/background_dark"
             android:textSize="18sp"
             android:textStyle="bold"
             android:visibility="invisible" />
@@ -97,13 +97,13 @@
             android:id="@+id/select_movie"
             android:layout_width="300dp"
             android:layout_height="30dp"
-            android:layout_marginBottom="11dp"
             android:layout_alignLeft="@+id/movie_matches"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/movie_matches"
+            android:layout_marginBottom="11dp"
             android:text="Select the movie you want to see"
             android:textAlignment="center"
-            android:textColor="@color/colorWhite"
+            android:textColor="@android:color/background_dark"
             android:textStyle="bold"
             android:visibility="invisible" />
 
